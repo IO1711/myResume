@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width", initial-scale="1.0">
+        <link rel="stylesheet" th:href="@{css/addData.css}">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>Add my Data</title>
+    </head>
+
+    <body>
+        
+        <h2>Create MyData Record</h2>
+        <form id="addMyData">
+            <label for="fName">First name</label>
+            <input type="text" name="fName" id="fName">
+            <label for="lName">Last name</label>
+            <input type="text" name="lName" id="lName">
+            <label for="jobTitle">Job title</label>
+            <input type="text" name="jobTitle" id="jobTitle">
+            <label for="description">Description</label>
+            <input type="text" name="description" id="description">
+            <button type="submit" id="submitButton">Save</button>
+        </form>
+
+        <h2>Update first record of MyData</h2>
+        <form id="updateMyData">
+            <label for="fNameUpdate">First name</label>
+            <input type="text" name="fName" id="fNameUpdate">
+            <label for="lNameUpdate">Last name</label>
+            <input type="text" name="lName" id="lNameUpdate">
+            <label for="jobTitleUpdate">Job title</label>
+            <input type="text" name="jobTitle" id="jobTitleUpdate">
+            <label for="descriptionUpdate">Description</label>
+            <input type="text" name="description" id="descriptionUpdate">
+            <button type="submit" id="submitButtonUpdate">Update</button>
+        </form>
+
+        <h2>Create hobbies record</h2>
+        <form id="setHobbies">
+            <label for="hobbyName">Hobby name</label>
+            <input type="text" name="hobbyName" id="hobbyName">
+            <button type="submit" id="addHobbyButton">Add hobby</button>
+        </form>
+
+        <h2>Create project record</h2>
+        <form id="setProject" enctype="multipart/form-data">
+            <label for="projectName">Project name</label>
+            <input type="text" name="projectName" id="projectName">
+
+            <label for="projectDescription">Project description</label>
+            <textarea name="projectDescription" id="projectDescription"></textarea>
+
+            <label for="projectImage">Project image</label>
+            <input type="file" name="file" id="projectImage" accept="image/*">
+
+            <div id="technologySet">
+            <input type="text" name="technology">
+            <input type="text" name="technology">
+            <input type="text" name="technology">
+            <button type="button" onclick="addTechnology()">Add technology</button>
+            </div>
+
+            <button type="submit" id="projectButton">Save</button>
+        </form>
+        
+        <script type="text/javascript" th:src="@{js/addData.js}"></script>
+        
+        
+    </body>
+
+</html>

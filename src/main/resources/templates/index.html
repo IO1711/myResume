@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{css/index.css}">
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>The best developer</title>
+    </head>
+
+    <body>
+
+        <div id="header">
+            This is header
+        </div>
+
+        <div id="mainContainer">
+            <div id="personalInfo">
+                <div id="fullName">
+                    My name
+                </div>
+
+                <div id="jobTitle">
+                    Job title
+                </div>
+
+                <div id="description">
+                    Description
+                </div>
+            </div>>
+        </div>
+
+        <div id="projects">
+            
+        </div>
+
+        <div id="footer">
+            <div id="contact">
+                <table>
+                    <tbody id="contactBody">
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                Phone number:
+                            </td>
+                            <td id="phoneNumber">
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+                                Email: 
+                            </td>
+                            <td id="email">
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        <script type="text/javascript" th:src="@{js/index.js}"></script>
+        <script type="text/javascript">
+            document.addEventListener('DOMContentLoaded', function(){
+                getAllProjects();
+            });
+        </script>
+        
+    </body>
+
+</html>
