@@ -1,30 +1,35 @@
-function getProject(projectId) {
+function getMyData(){
+    const loadingBox = document.querySelector(".loading-box");
+    loadingBox.style.display = "block";
+
+    const fullName = document.getElementById("fullName");
+    const jobTitle = document.getElementById("jobTitle");
+    const description = document.getElementById("description");
+    var myAge = 0;
+
     $.ajax({
         type: 'GET',
-        url: '/getProject/' + projectId, // Assume this endpoint returns the project details
-        success: function(data) {
-            displayProject(data);
-        },
-        error: function(err) {
-            console.error("Error fetching project", err);
+        url: '/getMyAge',
+        success: function(age){
+            myAge = age;
         }
     });
-}
 
-function displayProject(project) {
-    // Assuming your project object contains a 'downloadUrl' for the image
-    const projectContainer = document.getElementById("imageContainer");
-    
-    const projectNameElement = document.getElementById("projectName");
-    projectNameElement.textContent = project.name;
-
-    const projectImageElement = document.createElement("img");
-    projectImageElement.src = project.downloadUrl;
-    projectImageElement.alt = project.name;
-    projectImageElement.classList = "images";
-
-    
-    projectContainer.appendChild(projectImageElement);
+    $.ajax({
+        type: 'GET',
+        url: '/getMyData',
+        success: function(data){
+            let myData = JSON.parse(data);
+            console.log("Before parsing: "+myData);
+            console.log("This is fName: "+myData.fname);
+            
+            
+            fullName.textContent = myData.fname + " " + myData.lname + ", " + myAge;
+            jobTitle.textContent = myData.jobTitle;
+            description.textContent = myData.description;
+            loadingBox.style.display = "none";
+        }
+    })
 }
 
 function getAllProjects(){
@@ -84,6 +89,7 @@ function getAllProjects(){
                             let emptyCell = document.createElement("td");
                             let techCell = document.createElement("td");
                             techCell.textContent = "- "+tech.technology;
+                            emptyCell.innerHTML = "&nbsp;";
                             techRow.appendChild(emptyCell);
                             techRow.appendChild(techCell);
 

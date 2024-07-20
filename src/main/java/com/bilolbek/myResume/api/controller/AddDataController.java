@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.Period;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -53,6 +55,19 @@ public class AddDataController {
     @GetMapping("/getMyData")
     public ResponseEntity<String> getMyData(){
         return ResponseEntity.ok(myDataService.getMyData());
+    }
+
+    @GetMapping("/getMyAge")
+    public ResponseEntity<Integer> getMyAge(){
+        int birthYear = 1999;
+
+        LocalDate currentDate = LocalDate.now();
+
+        LocalDate birthDate = LocalDate.of(birthYear, 11, 17);
+
+        int age = Period.between(birthDate, currentDate).getYears();
+
+        return ResponseEntity.ok(age);
     }
 
     @PostMapping("/saveMyData")
