@@ -24,7 +24,7 @@ function getMyData(){
             console.log("This is fName: "+myData.fname);
             
             
-            fullName.textContent = myData.fname + " " + myData.lname + ", " + myAge;
+            fullName.innerHTML += myData.fname + " " + myData.lname + ", " + myAge;
             jobTitle.textContent = myData.jobTitle;
             description.textContent = myData.description;
             loadingBox.style.display = "none";
@@ -121,4 +121,18 @@ function getAllProjects(){
             console.error("Error fetching projects", err);
         }
     })
+}
+
+function flipCard(){
+    const flipContainer = document.querySelectorAll(".flipContainer");
+    
+    flipContainer.forEach(container =>{
+        container.classList.toggle('flipped');
+    });
+    
+
+    const intButtons = document.querySelectorAll(".interfaceButton");
+    intButtons.forEach(element =>{
+        element.classList.toggle('inactiveIntButton');
+    });
 }

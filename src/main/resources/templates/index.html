@@ -12,34 +12,54 @@
     <body>
 
         <div id="header">
-            This is header
+            <div id="interfaceButtons" onclick="flipCard()">
+                <div class="interfaceButton">Text</div>
+                <div class="interfaceButton" id="apiButton">API</div>
+            </div>
+            
         </div>
 
         <div id="mainContainer">
-            
+            <div class="flipContainer">
             <div id="personalInfo">
-                <div id="fullName">
+                
+                
+                <div id="fullName" class="fullName">
+                    <div class="loading-box">
+                        <div class="shiny-effect"></div>
+                    </div>
+                        
+                        
+                </div>
+                    
+                
+                
+                
+                <div id="jobTitle" class="jobTitle">
                     <div class="loading-box">
                         <div class="shiny-effect"></div>
                     </div>
                     
                 </div>
 
-                <div id="jobTitle">
-                    <div class="loading-box">
-                        <div class="shiny-effect"></div>
-                    </div>
-                    
-                </div>
+                
+                
 
-                <div id="description">
+                
+                <div id="description" class="description">
                     <div class="loading-box">
                         <div class="shiny-effect"></div>
                     </div>
                 </div>
-            </div>>
+                
+            </div>
+                <div class="flipBack">
+                    <div class="fullName" style="font-size: 6vh;">/getMyData/fname+lname+/getMyAge</div>
+                    <div class="jobTitle">/getMyData/jobTitle</div>
+                    <div class="description">/getMyData/description</div>
+                </div>
+            </div>
         </div>
-
         <div id="projects">
             
         </div>
@@ -83,6 +103,9 @@
             document.addEventListener('DOMContentLoaded', function(){
                 getMyData();
                 getAllProjects();
+
+                const apiButton = document.getElementById("apiButton");
+                apiButton.classList.toggle('inactiveIntButton');
             });
         </script>
         
