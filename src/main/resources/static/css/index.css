@@ -340,4 +340,9 @@ h1{
     .fullName{
         font-size: 10vw;
     }
+
+    .jobTitle{
+        font-size: 3vh;
+        margin-top: 1%;
+    }
 }
