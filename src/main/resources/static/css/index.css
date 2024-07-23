@@ -73,7 +73,8 @@ h1{
 }
 
 #header{
-    
+    display: flex;
+    align-items: center;
     height: auto;
     width: 100%;
     background-color: rgb(12, 9, 30);
@@ -115,6 +116,15 @@ h1{
     background-color: rgb(12, 9, 30);
     color: aliceblue;
     border: 1px solid aliceblue;
+}
+
+#headerText{
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    width: auto;
+    color: aliceblue;
+    margin-left: 2%;
 }
 
 
@@ -162,7 +172,7 @@ h1{
     height: 100%;
     background-color: grey;
     overflow: hidden;
-    border-radius: 5px;
+    border-radius: 5px;color: transparent;
 }
 
 .flipContainer{
@@ -216,6 +226,7 @@ h1{
     width: auto;
     /*margin-top: 40%;*/
     font-size: 5vh;
+    margin-top: 0.5%;
     /*backface-visibility: hidden;*/
 }
 

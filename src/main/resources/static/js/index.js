@@ -24,7 +24,7 @@ function getMyData(){
             console.log("This is fName: "+myData.fname);
             
             
-            fullName.innerHTML += myData.fname + " " + myData.lname + ", " + myAge;
+            fullName.innerHTML = myData.fname + " " + myData.lname + ", " + myAge;
             jobTitle.textContent = myData.jobTitle;
             description.textContent = myData.description;
             loadingBox.style.display = "none";
