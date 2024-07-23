@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import com.bilolbek.myResume.service.ContactService;
 import com.bilolbek.myResume.service.ProjectsService;
 
 @Controller
@@ -13,6 +15,9 @@ public class IndexController {
 
     @Autowired
     private ProjectsService projectsService;
+
+    @Autowired
+    private ContactService contactService;
 
     @GetMapping("/")
     public String index(){
@@ -29,5 +34,10 @@ public class IndexController {
         
 
         return ResponseEntity.ok(projectsService.getAllTechnologies(projectId));
+    }
+
+    @GetMapping ("/getContact")
+    public ResponseEntity<String> getContact(){
+        return ResponseEntity.ok(contactService.getContact());
     }
 }

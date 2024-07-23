@@ -111,3 +111,30 @@ function addTechnology(){
 
     parentTech.appendChild(newInput);
 }
+
+const contactData = document.getElementById("contacts");
+
+
+if(contactData){
+    contactData.addEventListener('submit', function(event){
+        event.preventDefault();
+
+        $("#contactButton").prop("disabled", true);
+
+        const formData = new FormData(contactData);
+
+        console.log(JSON.stringify(formData));
+
+        console.log("Sending this: "+formData);
+        $.ajax({
+            type: 'POST',
+            url: '/saveContact',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data){
+                $("#contactButton").prop("disabled", false);
+            }
+        });
+    });
+}

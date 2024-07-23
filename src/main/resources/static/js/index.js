@@ -20,8 +20,7 @@ function getMyData(){
         url: '/getMyData',
         success: function(data){
             let myData = JSON.parse(data);
-            console.log("Before parsing: "+myData);
-            console.log("This is fName: "+myData.fname);
+
             
             
             fullName.innerHTML = myData.fname + " " + myData.lname + ", " + myAge;
@@ -29,7 +28,28 @@ function getMyData(){
             description.textContent = myData.description;
             loadingBox.style.display = "none";
         }
-    })
+    });
+
+    $.ajax({
+        type: 'GET',
+        url: '/getContact',
+        success: function(data){
+            const contactInfo = JSON.parse(data);
+
+            const phoneNumber = document.getElementById("phoneNumber");
+            const email = document.getElementById("email");
+            const telegram = document.getElementById("telegram");
+
+            phoneNumber.textContent = contactInfo.phoneNumber;
+            email.textContent = contactInfo.email;
+
+            let linkTelegram = document.createElement("a");
+            linkTelegram.href = contactInfo.telegram;
+            linkTelegram.textContent = "Bilolbek17";
+            
+            telegram.appendChild(linkTelegram);
+        }
+    });
 }
 
 function getAllProjects(){

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -22,8 +23,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.bilolbek.myResume.api.DTO.ProjectsDTO;
+import com.bilolbek.myResume.api.model.Contact;
 import com.bilolbek.myResume.api.model.Hobbies;
 import com.bilolbek.myResume.api.model.MyData;
+import com.bilolbek.myResume.service.ContactService;
 import com.bilolbek.myResume.service.HobbiesService;
 import com.bilolbek.myResume.service.MyDataService;
 import com.bilolbek.myResume.service.ProjectsService;
@@ -45,6 +48,9 @@ public class AddDataController {
 
     @Autowired
     private ProjectsService projectsService;
+
+    @Autowired
+    private ContactService contactService;
 
 
     @GetMapping("/addData")
@@ -132,5 +138,11 @@ public class AddDataController {
         ProjectsDTO projectsDTO = new ProjectsDTO(project.getId(), project.getProjectName(), project.getProjectDescription(), project.getFileName(), downloadUrl, project.getFileType());
 
         return ResponseEntity.ok(projectsDTO);
+    }
+
+
+    @PostMapping("/saveContact")
+    public ResponseEntity<String> saveContact(Contact contact){
+        return ResponseEntity.ok(contactService.saveContact(contact));
     }
 }
