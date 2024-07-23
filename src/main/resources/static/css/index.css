@@ -337,6 +337,10 @@ h1{
 
 
 @media (max-width: 767px){
+    #interfaceButtons{
+        margin-left: 0.5%;
+    }
+    
     .fullName{
         font-size: 10vw;
     }
