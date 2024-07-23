@@ -338,11 +338,11 @@ h1{
 
 @media (max-width: 767px){
     #mainContainer{
-        height: 35vh;
+        height: 30vh;
     }
 
     #headerText{
-        margin-left: 5%;
+        margin-left: 10%;
     }
 
     #interfaceButtons{
