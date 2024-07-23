@@ -337,6 +337,14 @@ h1{
 
 
 @media (max-width: 767px){
+    #mainContainer{
+        height: 35vh;
+    }
+
+    #headerText{
+        margin-left: 5%;
+    }
+
     #interfaceButtons{
         margin-left: 0.5%;
     }
