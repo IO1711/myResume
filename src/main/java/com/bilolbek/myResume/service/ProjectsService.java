@@ -39,7 +39,7 @@ public class ProjectsService {
     private final String UPLOAD_DIR = "src/main/resources/static/assets/";
 
     @Transactional
-    public Projects saveProject(String projectName, String projectDescription, MultipartFile file, List<String> technology) throws Exception{
+    public Projects saveProject(String projectName, String projectDescription, String projectLink, MultipartFile file, List<String> technology) throws Exception{
         String fileName = file.getOriginalFilename();
         Path filePath = Paths.get(UPLOAD_DIR);
 
@@ -56,7 +56,7 @@ public class ProjectsService {
             
             Files.copy(file.getInputStream(), filePathDir);
 
-            Projects project = new Projects(projectName, projectDescription, fileName, file.getContentType(), filePathDir.toString());
+            Projects project = new Projects(projectName, projectDescription, projectLink, fileName, file.getContentType(), filePathDir.toString());
             projectsRepository.save(project);
             
             for(String technologyMember : technology){
@@ -95,7 +95,7 @@ public class ProjectsService {
                             .path(project.getFileName())
                             .toUriString();
 
-            ProjectsDTO projectsDTO = new ProjectsDTO(project.getId(), project.getProjectName(), project.getProjectDescription(), project.getFileName(), downloadUrl, project.getFileType());
+            ProjectsDTO projectsDTO = new ProjectsDTO(project.getId(), project.getProjectName(), project.getProjectDescription(), project.getProjectLink(), project.getFileName(), downloadUrl, project.getFileType());
 
             allProjects.add(projectsDTO);
         }

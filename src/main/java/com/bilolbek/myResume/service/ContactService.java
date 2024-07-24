@@ -26,7 +26,7 @@ public class ContactService {
 
     @Transactional
     public String saveContact(Contact contact){
-        System.out.println("Received: "+contact);
+        
         contactRepository.save(contact);
         return "success";
     }

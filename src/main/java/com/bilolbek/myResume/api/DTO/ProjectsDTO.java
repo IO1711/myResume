@@ -8,6 +8,7 @@ public class ProjectsDTO {
 
     private String projectName;
     private String projectDescription;
+    private String projectLink;
 
     private String fileName;
 
@@ -17,10 +18,11 @@ public class ProjectsDTO {
 
     
 
-    public ProjectsDTO(Long id, String projectName, String projectDescription, String fileName, String downloadUrl, String fileType){
+    public ProjectsDTO(Long id, String projectName, String projectDescription, String projectLink, String fileName, String downloadUrl, String fileType){
         this.id = id;
         this.projectName = projectName;
         this.projectDescription = projectDescription;
+        this.projectLink = projectLink;
         this.fileName = fileName;
         this.downloadUrl = downloadUrl;
         this.fileType = fileType;
@@ -54,6 +56,14 @@ public class ProjectsDTO {
 
     public void setProjectDescription(String projectDescription) {
         this.projectDescription = projectDescription;
+    }
+
+    public String getProjectLink() {
+        return this.projectLink;
+    }
+
+    public void setProjectLink(String projectLink) {
+        this.projectLink = projectLink;
     }
 
     public void setFileName(String fileName) {

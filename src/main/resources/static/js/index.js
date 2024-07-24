@@ -88,13 +88,37 @@ function getAllProjects(){
                 let firstRow = document.createElement("tr");
 
                 let descriptionColumn = document.createElement("td");
-                descriptionColumn.colSpan = 2;
+                //descriptionColumn.colSpan = 4;
                 descriptionColumn.textContent = project.projectDescription;
 
+                
+
+                
+
+                
+
                 firstRow.appendChild(descriptionColumn);
+                
+
+                let secondRow = document.createElement("tr");
+
+                let linkCell = document.createElement("td");
+                //linkCell.colSpan = 4;
+
+                let pElement = document.createElement("span");
+                pElement.textContent = "Link: ";
+
+                let projectLink = document.createElement("a");
+                projectLink.href = project.projectLink;
+                projectLink.textContent = project.projectName;
+
+                secondRow.appendChild(pElement);
+                secondRow.appendChild(projectLink);
+
 
                 
                 projecttbody.appendChild(firstRow);
+                projecttbody.appendChild(secondRow);
                 let techCounter = 0;
                 $.ajax({
                     type: 'GET',
@@ -106,11 +130,14 @@ function getAllProjects(){
                         techJson.forEach(tech => {
                             let techRow = document.createElement("tr");
 
-                            let emptyCell = document.createElement("td");
+                            //let emptyCell = document.createElement("td");
+                            
                             let techCell = document.createElement("td");
                             techCell.textContent = "- "+tech.technology;
-                            emptyCell.innerHTML = "&nbsp;";
-                            techRow.appendChild(emptyCell);
+                            techCell.style.paddingLeft = '4%';
+                            //emptyCell.innerHTML = "&nbsp;";
+                            
+                            //techRow.appendChild(emptyCell);
                             techRow.appendChild(techCell);
 
                             projecttbody.appendChild(techRow);

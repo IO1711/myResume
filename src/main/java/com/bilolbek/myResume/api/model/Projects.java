@@ -18,6 +18,7 @@ public class Projects {
 
     private String projectName;
     private String projectDescription;
+    private String projectLink;
 
     private String fileName;
     private String fileType;
@@ -27,9 +28,10 @@ public class Projects {
 
     }
 
-    public Projects(String projectName, String projectDescription, String fileName, String fileType, String filePath){
+    public Projects(String projectName, String projectDescription, String projectLink, String fileName, String fileType, String filePath){
         this.projectName = projectName;
         this.projectDescription = projectDescription;
+        this.projectLink = projectLink;
         this.fileName = fileName;
         this.fileType = fileType;
         this.filePath = filePath;
@@ -62,6 +64,14 @@ public class Projects {
         this.projectDescription = projectDescription;
     }
 
+    public String getProjectLink() {
+        return this.projectLink;
+    }
+
+    public void setProjectLink(String projectLink) {
+        this.projectLink = projectLink;
+    }
+
     public String getFileName() {
         return this.fileName;
     }
@@ -89,16 +99,20 @@ public class Projects {
     
 
 
+
     @Override
     public String toString() {
         return "{" +
             " id='" + getId() + "'" +
             ", projectName='" + getProjectName() + "'" +
+            ", projectDescription='" + getProjectDescription() + "'" +
+            ", projectLink='" + getProjectLink() + "'" +
             ", fileName='" + getFileName() + "'" +
             ", fileType='" + getFileType() + "'" +
             ", filePath='" + getFilePath() + "'" +
             "}";
     }
+    
     
     
 

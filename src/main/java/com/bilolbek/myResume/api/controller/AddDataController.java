@@ -100,11 +100,12 @@ public class AddDataController {
     public ResponseEntity<String> saveProject(
             @RequestParam("projectName") String projectName,
             @RequestParam("projectDescription") String projectDescription,
+            @RequestParam("projectLink") String projectLink,
             @RequestParam("file") MultipartFile file,
             @RequestParam("technology") List<String> technology) throws Exception{
 
 
-        Projects project = projectsService.saveProject(projectName, projectDescription, file, technology);
+        Projects project = projectsService.saveProject(projectName, projectDescription, projectLink, file, technology);
 
         String downloadUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
                 .path("/download/")
@@ -135,7 +136,7 @@ public class AddDataController {
                             .path(project.getFileName())
                             .toUriString();
         
-        ProjectsDTO projectsDTO = new ProjectsDTO(project.getId(), project.getProjectName(), project.getProjectDescription(), project.getFileName(), downloadUrl, project.getFileType());
+        ProjectsDTO projectsDTO = new ProjectsDTO(project.getId(), project.getProjectName(), project.getProjectDescription(), project.getProjectLink(), project.getFileName(), downloadUrl, project.getFileType());
 
         return ResponseEntity.ok(projectsDTO);
     }

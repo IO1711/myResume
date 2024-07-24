@@ -68,6 +68,16 @@ html, body{
     overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    color: inherit; /* or specify a color if you prefer */
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+
 h1{
     margin: 0;
 }
