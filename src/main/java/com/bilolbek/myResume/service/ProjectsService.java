@@ -109,7 +109,7 @@ public class ProjectsService {
 
         for(Projects project : allProjectsProduct){
             String downloadUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
-                            .path("/assets/")
+                            .path("/uploads/")
                             .path(project.getFileName())
                             .toUriString();
 
