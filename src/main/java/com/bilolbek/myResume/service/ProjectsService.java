@@ -1,6 +1,7 @@
 package com.bilolbek.myResume.service;
 
 
+
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,7 +26,9 @@ import com.bilolbek.myResume.api.model.Projects;
 
 import jakarta.transaction.Transactional;
 
+
 @Service
+
 public class ProjectsService {
 
     @Autowired
@@ -37,15 +40,20 @@ public class ProjectsService {
     @Autowired
     private ObjectMapper objectMapper;
 
-    private URL saveFolder = getClass().getClassLoader().getResource("static/assets/");
+    //private URL saveFolder = getClass().getClassLoader().getResource("static/assets/");
 
-    private final String UPLOAD_DIR = saveFolder.getPath();
+    private final String UPLOAD_DIR = "src/main/resources/static/assets/";//saveFolder.getPath();
+
+    
+
+    
 
     @Transactional
     public Projects saveProject(String projectName, String projectDescription, String projectLink, MultipartFile file, List<String> technology) throws Exception{
         String fileName = file.getOriginalFilename();
         Path filePath = Paths.get(UPLOAD_DIR);
 
+        
         try {
             if(fileName.contains("..")){
                 throw new Exception("Filename contains invalid path sequence: "+fileName);
@@ -53,24 +61,30 @@ public class ProjectsService {
 
             if(Files.notExists(filePath)){
                 Files.createDirectories(filePath);
+                
             }
 
             Path filePathDir = filePath.resolve(fileName);
             
             Files.copy(file.getInputStream(), filePathDir);
+            
+            
 
             Projects project = new Projects(projectName, projectDescription, projectLink, fileName, file.getContentType(), filePathDir.toString());
             projectsRepository.save(project);
+            
             
             for(String technologyMember : technology){
                 ProjectTechnologies projectTechnologies = new ProjectTechnologies();
                 projectTechnologies.setTechnology(technologyMember);
                 projectTechnologies.setProject(project);
                 projectTechnologiesRepository.save(projectTechnologies);
+            
             }
 
             return project;
         } catch (Exception e) {
+            
             throw new Exception("Could not save file: "+fileName);
         }
 
