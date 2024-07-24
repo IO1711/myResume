@@ -42,8 +42,8 @@ public class ProjectsService {
     private ObjectMapper objectMapper;
 
     //private URL saveFolder = getClass().getClassLoader().getResource("static/assets/");
-    @Value("${upload.dir}")
-    private String UPLOAD_DIR;
+    //@Value("${upload.dir}")
+    private String UPLOAD_DIR = "src/main/resources/static/assets";
 
     
 
