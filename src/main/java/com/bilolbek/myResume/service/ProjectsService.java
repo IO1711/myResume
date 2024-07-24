@@ -12,6 +12,7 @@ import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -41,8 +42,8 @@ public class ProjectsService {
     private ObjectMapper objectMapper;
 
     //private URL saveFolder = getClass().getClassLoader().getResource("static/assets/");
-
-    private final String UPLOAD_DIR = "src/main/resources/static/assets/";//saveFolder.getPath();
+    @Value("${upload.dir}")
+    private String UPLOAD_DIR;
 
     
 
