@@ -1,6 +1,7 @@
 package com.bilolbek.myResume.service;
 
 
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -36,7 +37,9 @@ public class ProjectsService {
     @Autowired
     private ObjectMapper objectMapper;
 
-    private final String UPLOAD_DIR = "src/main/resources/static/assets/";
+    private URL saveFolder = getClass().getClassLoader().getResource("static/assets/");
+
+    private final String UPLOAD_DIR = saveFolder.getPath();
 
     @Transactional
     public Projects saveProject(String projectName, String projectDescription, String projectLink, MultipartFile file, List<String> technology) throws Exception{
