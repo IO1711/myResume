@@ -2,7 +2,7 @@ package com.bilolbek.myResume.service;
 
 
 
-import java.net.URL;
+
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -109,7 +109,7 @@ public class ProjectsService {
 
         for(Projects project : allProjectsProduct){
             String downloadUrl = ServletUriComponentsBuilder.fromCurrentContextPath()
-                            .path("/uploads/")
+                            .path("/assets/")
                             .path(project.getFileName())
                             .toUriString();
 
